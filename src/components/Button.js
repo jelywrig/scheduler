@@ -1,15 +1,15 @@
 import React from "react";
 
 import "components/Button.scss";
-import classnames from "classnames";
+import classNames from "classnames";
 
 export default function Button(props) {
-   let classNm = "button";
-   if(props.danger) {
-      classNm += " button--danger";
-   } else if (props.confirm) {
-      classNm += " button--confirm";
-   }
+   
+   const btnClass = classNames({
+      'button': true,
+      'button--danger': props.danger,
+      'button--confirm': props.confirm
+   });
 
-   return <button disabled={props.disabled} onClick={ props.onClick } className={ classNm } >{ props.children }</button>;
+   return <button disabled={props.disabled} onClick={ props.onClick } className={ btnClass } >{ props.children }</button>;
 }
