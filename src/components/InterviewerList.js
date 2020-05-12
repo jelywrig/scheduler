@@ -15,7 +15,7 @@ return (<section className="interviewers">
       name={interviewer.name}
       avatar={interviewer.avatar}
       selected={interviewer.id === props.interviewer ? true: false}
-      setInterviewer={interviewer.setInterviewer}
+      setInterviewer={(event)=> props.setInterviewer(interviewer.id)}
     />
       })}
 </ul>
