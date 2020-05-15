@@ -18,20 +18,20 @@ export default function useApplicationData() {
   }, []);
 
 
-  const bookInterview = function(id, interview) {
+  const bookInterview = function(id, interview, create = false) {
     const appointment = {
       ...state.appointments[id],
       interview: {...interview}
     };
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment
-    };
 
     return axios.put(`/api/appointments/${id}`, appointment)
           .then((res) => {
-            const days = getDaysWithUpdatedSpots(-1);
-            setState({...state, days, appointments});
+            let delta = create ? -1 : 0;
+            const appointments = {
+              ...state.appointments,
+              [id]: appointment
+            };
+            setState(prev => ({...prev, days: getDaysWithUpdatedSpots(delta), appointments}));
           });
   };
 
@@ -40,15 +40,14 @@ export default function useApplicationData() {
       ...state.appointments[id],
       interview: null
     }
-    const appointments = {
-      ...state.appointments,
-      [id] : appointment
-    }
     
     return axios.delete(`/api/appointments/${id}`)
           .then( res => {
-            const days = getDaysWithUpdatedSpots(1);
-            setState({...state, days, appointments});
+            const appointments = {
+              ...state.appointments,
+              [id] : appointment
+            }
+            setState(prev => ({...prev, days: getDaysWithUpdatedSpots(1), appointments}));
           })
   }
 
