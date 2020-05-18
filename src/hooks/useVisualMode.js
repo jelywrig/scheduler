@@ -5,6 +5,7 @@ export default function useVisualMode(initialMode) {
   const [history, setHistory] = React.useState([initialMode]);
 
   const transition = (newMode, replace = false) => { 
+    console.log(history);
     setMode(newMode);
     if(!replace) {
       setHistory(prev => ([...prev, mode]));
@@ -12,7 +13,7 @@ export default function useVisualMode(initialMode) {
   };
   const back = () => {
     if(history.length > 1) {
-      history.pop();
+      setHistory(prev => prev.slice(0, -1))
       setMode(history[history.length - 1]);
     }
   };
