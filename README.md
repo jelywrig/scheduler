@@ -2,11 +2,15 @@
 A single page React application that allows users to book and cancel interviews.  Data is presisted by the API server (provided by Lighthouse as part of curriculum) using a PostgresSQL database.  Client application comminucates with API server over HTTP using the JSON format.  Jest tests were used throughout the development of the project. Storybook was used to build componenets in isolation. Cypress E2E tests were added at the end of the project.
 
 ## Tech Stack
-React
-Webpack, Babel
-Axios
+React,
+Webpack, Babel,
+Axios,
 Storybook, Webpack Dev Server, Jest, Testing Library
 
+## Screenshots
+![Main View](https://github.com/jelywrig/scheduler/blob/master/docs/calendar.png)
+![Create New](https://github.com/jelywrig/scheduler/blob/master/docs/create-new.png)
+![Edit](https://github.com/jelywrig/scheduler/blob/master/docs/Edit.png)
 ## Setup
 
 Install dependencies with `npm install`.
@@ -28,5 +32,5 @@ npm test
 ```sh
 npm run storybook
 ```
-## Screenshots
+
 
