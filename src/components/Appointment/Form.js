@@ -12,7 +12,7 @@ export default function Form(props) {
 
   const reset = () => {
 
-    // shouldn't it set back to the original appointment values if there are vals in props - ie ifit is an edit rather than create?
+    // spec advised that this is the desired action regardless of whether edit or create - possible improvement to set to original value if reset performed on edit
     setName("");
     setInterviewer(null);
   }

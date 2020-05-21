@@ -4,6 +4,7 @@ import axios from "axios";
 
 export default function useApplicationData() { 
  
+  // recalculates spots for all days - avoids additional prop drilling to distinguish between edit and create
   const getDaysWithUpdatedSpots = function(days, appointments) {
     const newDays = [] 
       for(const day of days) {
